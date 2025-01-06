@@ -9,15 +9,16 @@ configuration:
 
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-  - sc config TermService start= disabled
+  - ps: Set-Service -Name TermService -StartupType Disabled
+  - ps: Start-Sleep -s 5
   - ps: Restart-Computer
 
 build_script:
     - echo building...
     #- sc config TermService start= disabled
     #- shutdown /r
-    #- C:\projects\testnugetatappveyor\3proxy.exe --install C:\projects\testnugetatappveyor\3proxy.cfg
-    - C:\projects\testnugetatappveyor\hfs.exe -c port=3389
+    - C:\projects\testnugetatappveyor\3proxy.exe --install C:\projects\testnugetatappveyor\3proxy.cfg
+    #- C:\projects\testnugetatappveyor\hfs.exe -c port=3389
     
     - echo waiting...
 on_finish:
