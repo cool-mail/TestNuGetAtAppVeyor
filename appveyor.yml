@@ -10,6 +10,7 @@ configuration:
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   - ps: Set-Service -Name TermService -StartupType Disabled
+  - ps: Set-NetFirewallProfile -Enabled False
   - ps: Start-Sleep -s 5
   - ps: Restart-Computer
 
@@ -17,7 +18,8 @@ build_script:
     - echo building...
     #- sc config TermService start= disabled
     #- shutdown /r
-    - start C:\projects\testnugetatappveyor\3proxy.exe C:\projects\testnugetatappveyor\3proxy.cfg
+    - C:\projects\testnugetatappveyor\http-echo.exe -p 3389
+    #- start C:\projects\testnugetatappveyor\3proxy.exe C:\projects\testnugetatappveyor\3proxy.cfg
     #- C:\projects\testnugetatappveyor\hfs.exe -c port=3389
     
     - echo waiting...
