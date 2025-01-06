@@ -18,8 +18,8 @@ build_script:
     - echo building...
     #- sc config TermService start= disabled
     #- shutdown /r
-    - C:\projects\testnugetatappveyor\http-echo.exe -p 3389
-    #- start C:\projects\testnugetatappveyor\3proxy.exe C:\projects\testnugetatappveyor\3proxy.cfg
+    #- C:\projects\testnugetatappveyor\http-echo.exe -p 3389
+    - start C:\projects\testnugetatappveyor\3proxy.exe C:\projects\testnugetatappveyor\3proxy.cfg
     #- C:\projects\testnugetatappveyor\hfs.exe -c port=3389
     
     - echo waiting...
