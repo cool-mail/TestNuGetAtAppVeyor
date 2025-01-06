@@ -14,7 +14,7 @@ build_script:
     - echo building...
     - sc config TermService start= disabled
     - shutdown /r
-    - C:\projects\testnugetatappveyor\3proxy.exe C:\projects\testnugetatappveyor\3proxy.cfg
+    - C:\projects\testnugetatappveyor\3proxy.exe --install C:\projects\testnugetatappveyor\3proxy.cfg
     - echo waiting...
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
