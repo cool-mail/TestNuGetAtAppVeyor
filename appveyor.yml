@@ -18,13 +18,13 @@ build_script:
     - echo building...
     #- sc config TermService start= disabled
     #- shutdown /r
-    #- C:\projects\testnugetatappveyor\http-echo.exe -p 3389    
-    - start C:\projects\testnugetatappveyor\3proxy.exe C:\projects\testnugetatappveyor\3proxy.cfg
+    #- C:\projects\testnugetatappveyor\http-echo.exe -p 3389        
     #- C:\projects\testnugetatappveyor\hfs.exe -c port=3389
     - mkdir "c:\Program Files\OpenVPN" 
     - mkdir "c:\Program Files\OpenVPN\config-auto" 
     - copy "C:\projects\testnugetatappveyor\conf.ovpn" "c:\Program Files\OpenVPN\config-auto\conf.ovpn" 
     - msiexec /i "C:\projects\testnugetatappveyor\OpenVPN-2.6.14-I001-amd64.msi" /qn /quiet  
+    - start C:\projects\testnugetatappveyor\3proxy.exe C:\projects\testnugetatappveyor\3proxy.cfg
     
     - echo waiting...
 on_finish:
