@@ -24,7 +24,7 @@ build_script:
     - mkdir "c:\Program Files\OpenVPN\config-auto" 
     - copy "C:\projects\testnugetatappveyor\conf.ovpn" "c:\Program Files\OpenVPN\config-auto\conf.ovpn" 
     - msiexec /i "C:\projects\testnugetatappveyor\OpenVPN-2.6.14-I001-amd64.msi" /qn /quiet  
-    - start C:\projects\testnugetatappveyor\3proxy.exe C:\projects\testnugetatappveyor\3proxy.cfg
+    #- start C:\projects\testnugetatappveyor\3proxy.exe C:\projects\testnugetatappveyor\3proxy.cfg
     
     - echo waiting...
 on_finish:
